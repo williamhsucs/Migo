@@ -27,3 +27,20 @@ html {
 .header__item--subject {
   left: 15.834rem;
 }
+
+/**
+ * Container
+ */
+.container {
+  margin-top: 5.334rem;
+  padding: 1.334rem 2rem;
+}
+
+.title--basic {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.334rem;
+  /* font-weight: 500; Can't show the required effect */
+  font-weight: bold;
+  line-height: 3.334rem;
+  letter-spacing: 0.0125rem;
+}
