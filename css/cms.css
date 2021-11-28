@@ -1,6 +1,7 @@
 html {
   font-family: "Roboto", Arial;
   font-size: 12px;
+  font-weight: 400;
 }
 
 /**
@@ -40,8 +41,7 @@ html {
 .title--basic {
   color: rgba(0, 0, 0, 0.87);
   font-size: 1.334rem;
-  /* font-weight: 500; Can't show the required effect */
-  font-weight: bold;
+  font-weight: 500;
   line-height: 3.334rem;
   letter-spacing: 0.0125rem;
 }
@@ -113,7 +113,7 @@ html {
   left: auto;
 }
 .table__th--basic {
-  font-weight: bold;
+  font-weight: 500;
   letter-spacing: 0.0125rem;
 }
 .table__th--toggle {
@@ -154,6 +154,9 @@ html {
 }
 .table__td--first {
   text-align: center;
+}
+.table__td--title {
+  font-weight: 500;
 }
 .table__td--sid:before {
   content: attr(sid);
@@ -285,7 +288,6 @@ html {
   content: url("../icon/tumblerOff.png");
 }
 .program__text {
-  font-weight: 400;
   letter-spacing: 0.0125rem;
   padding-left: 0.75rem;
   line-height: 1.167rem;
