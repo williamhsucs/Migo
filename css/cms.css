@@ -31,6 +31,35 @@ html {
 }
 
 /**
+ * Brand
+ */
+.brand__outer {
+  background: black;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  width: 15.833rem;
+  height: 5.333rem;
+  line-height: 1rem;
+}
+.brand__inner {
+  display: inline-flex;
+  height: 100%;
+}
+.brand__logo {
+  width: 2.3rem;
+}
+.brand__title {
+  margin: auto 0.75rem;
+  text-align: left;
+}
+.brand__title--1 {
+  letter-spacing: 0.42rem;
+}
+.brand__title--2 {
+  letter-spacing: 0.172rem;
+}
+/**
  * Container
  */
 .container {
