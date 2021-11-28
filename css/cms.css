@@ -248,6 +248,10 @@ html {
   top: -3px;
   transform: scale(.4);
 }
+
+/**
+ * Toggle Icon
+ */
 .toggle__icon--collapse:before {
   content: url("../icon/collapse.png");
 }
@@ -264,4 +268,32 @@ html {
 }
 .toggle__icon--img {
   width: 1.334rem;
+}
+
+/**
+ * Programmable Icon
+ */
+.program__icon--on {
+  content: url("../icon/tumblerOn.png");
+}
+.program__icon--off {
+  content: url("../icon/tumblerOff.png");
+}
+.program__text {
+  font-weight: 400;
+  letter-spacing: 0.0125rem;
+  padding-left: 0.75rem;
+  line-height: 1.167rem;
+}
+.program__text--movie:before {
+  content: "Single Movie";
+}
+.program__text--season:before {
+  content: "All Seasons";
+}
+.program__text--eps:before {
+  content: "All Episodes";
+}
+.program__text--ep:before {
+  content: "Per Episodes";
 }

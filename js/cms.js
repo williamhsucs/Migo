@@ -27,11 +27,14 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     template.removeClass("table__tr--hide");
     template.find(".table__td--season").text("--");
     template.find(".table__td--episode").text("--");
+    template.find(".program__text").addClass("program__text--movie");
   } else if (type == "Series") {
     template.removeClass("table__tr--hide");
     template.find(".table__td--season").text(seasons.length);
     template.find(".table__td--episode").text(episodes);
+    template.find(".table__td--id").attr("rid", id);
     template.find(".toggle__icon").addClass("toggle__icon--collapse").attr("src", "icon/collapse.png");
+    template.find(".program__text").addClass("program__text--season");
   } else if (type == "Season") {
     template.attr("pid", pid);
     template.find(".table__td--id").text("").attr("sid", id).addClass("table__td--sid");
@@ -44,6 +47,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     } else {
       template.find(".table__td--first").addClass("table__line--season");
     }
+    template.find(".program__text").addClass("program__text--eps");
   } else if (type == "Episode") {
     template.attr("pid", pid);
     template.attr("gid", gid);
@@ -59,6 +63,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     } else {
       template.find(".table__td--first").addClass("table__line--ep2");
     }
+    template.find(".program__text").addClass("program__text--ep");
   }
   template.find(".table__td--published").text(timeConverter(published));
   template.removeClass("table--template");
@@ -99,6 +104,62 @@ $(".table").on("click", ".table__tr", function() {
     var sid = $(this).find(".table__td--sid").attr("sid");
     $icon.addClass("toggle__icon--plus").removeClass("toggle__icon--minus table__line--minus").attr("src", "icon/plus.png");
     $("[pid='" + sid + "']").addClass("table__tr--hide");
+  }
+});
+
+
+$(".table").on("click", ".program__icon", function(e) {
+  e.stopPropagation();
+  var $icon = $(this);
+  var $type = $(this).next();
+
+  if ($type.hasClass("program__text--movie")) {
+    if ($icon.hasClass("program__icon--on")) {
+      $icon.removeClass("program__icon--on").addClass("program__icon--off");
+    } else {
+      $icon.removeClass("program__icon--off").addClass("program__icon--on");
+    }
+  } else if ($type.hasClass("program__text--season")) {
+    var id = $icon.parent().siblings(".table__td--id").text();
+
+    if ($icon.hasClass("program__icon--on")) {
+      $icon.removeClass("program__icon--on").addClass("program__icon--off");
+      $("[pid='" + id + "']").find(".program__icon").removeClass("program__icon--on").addClass("program__icon--off");
+      $("[gid='" + id + "']").find(".program__icon").removeClass("program__icon--on").addClass("program__icon--off");
+    } else {
+      $icon.removeClass("program__icon--off").addClass("program__icon--on");
+      $("[pid='" + id + "']").find(".program__icon").removeClass("program__icon--off").addClass("program__icon--on");
+      $("[gid='" + id + "']").find(".program__icon").removeClass("program__icon--off").addClass("program__icon--on");
+    }
+  } else if ($type.hasClass("program__text--eps")) {
+    var sid = $icon.parent().siblings(".table__td--sid").attr("sid");
+    if ($icon.hasClass("program__icon--on")) {
+      $icon.removeClass("program__icon--on").addClass("program__icon--off");
+      $("[pid='" + sid + "']").find(".program__icon").removeClass("program__icon--on").addClass("program__icon--off");
+    } else {
+      var $tr = $icon.parent().parent();
+      var pid = $tr.attr("pid");
+      $icon.removeClass("program__icon--off").addClass("program__icon--on");
+      $("[pid='" + sid + "']").find(".program__icon").removeClass("program__icon--off").addClass("program__icon--on");
+      if ($("[rid='" + pid + "']").parent().find(".program__icon").hasClass("program__icon--off")) {
+        $("[rid='" + pid + "']").parent().find(".program__icon").removeClass("program__icon--off").addClass("program__icon--on");
+      }
+    }
+  } else if ($type.hasClass("program__text--ep")) {
+    if ($icon.hasClass("program__icon--on")) {
+      $icon.removeClass("program__icon--on").addClass("program__icon--off");
+    } else {
+      var $tr = $icon.parent().parent();
+      var pid = $tr.attr("pid");
+      var gid = $tr.attr("gid");
+      $icon.removeClass("program__icon--off").addClass("program__icon--on");
+      if ($("[sid='" + pid + "']").parent().find(".program__icon").hasClass("program__icon--off")) {
+        $("[sid='" + pid + "']").parent().find(".program__icon").removeClass("program__icon--off").addClass("program__icon--on");
+      }
+      if ($("[rid='" + gid + "']").parent().find(".program__icon").hasClass("program__icon--off")) {
+        $("[rid='" + gid + "']").parent().find(".program__icon").removeClass("program__icon--off").addClass("program__icon--on");
+      }
+    }
   }
 });
 
