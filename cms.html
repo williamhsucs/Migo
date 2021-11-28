@@ -27,9 +27,62 @@
         <img class="search__icon--img" src="icon/search.png">
       </span>
 		</div>
+    <div class="table__outer table__outer--basic">
+      <div class="table__inner">
+        <table class="table">
+          <thead class="table__th table__th--bg"></thead>
+          <thead>
+            <tr>
+              <th class="table__th table__th--basic table__th--toggle"></th>
+              <th class="table__th table__th--basic table__th--s">
+                <div class="table__th--fixed">ID</div>
+              </th>
+              <th class="table__th table__th--basic table__th--l">
+                <div class="table__th--fixed">Title Name</div>
+              </th>
+              <th class="table__th table__th--basic table__th--s">
+                <div class="table__th--fixed">Type</div>
+              </th>
+              <th class="table__th table__th--basic table__th--s">
+                <div class="table__th--fixed">Season</div>
+              </th>
+              <th class="table__th table__th--basic table__th--s">
+                <div class="table__th--fixed">Episode</div>
+              </th>
+              <th class="table__th table__th--basic table__th--l">
+                <div class="table__th--fixed">Published</div>
+              </th>
+              <th class="table__th table__th--basic table__th--m">
+                <div class="table__th--fixed">Programmable</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="table__tbody">
+            <tr class="table__tr table__tr--hide table--template">
+              <td class="table__td table__td--first">
+                <span class="toggle__icon"></span>
+              </td>
+              <td class="table__td table__td--id"></td>
+              <td class="table__td table__td--title"></td>
+              <td class="table__td table__td--type"></td>
+              <td class="table__td table__td--season"></td>
+              <td class="table__td table__td--episode"></td>
+              <td class="table__td table__td--published"></td>
+              <td class="table__td table__td--programmable">
+                <span class="">
+                  <img class="--img" src="icon/tumblerOn.png">
+                </span>
+                <span></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   <script src="thirdparty/jquery/jquery-1.11.1.min.js"></script>
   <script src="thirdparty/perfect-scrollbar/perfect-scrollbar-0.6.11.jquery.min.js"></script>
+  <script src="data/titles.json"></script>
   <script src="js/cms.js"></script>
 </body>
 </html>
