@@ -59,6 +59,30 @@ html {
 .brand__title--2 {
   letter-spacing: 0.172rem;
 }
+
+/**
+ * Header Item
+ */
+.item__outer {
+  box-shadow: inset 0 -0.333rem 0 white;
+  color: white;
+  text-align: center;
+  width: 14.667rem;
+  height: 5.333rem;
+}
+.item__inner {
+  display: inline-flex;
+}
+.item__title {
+  margin: auto 0.75rem;
+  text-align: left;
+}
+.item__title--text {
+  font-size: 1.333rem;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+}
+
 /**
  * Container
  */
