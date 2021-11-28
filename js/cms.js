@@ -37,7 +37,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     template.find(".table__td--season").text(seasons.length);
     template.find(".table__td--episode").text(episodes);
     template.find(".table__td--id").attr("rid", id);
-    template.find(".toggle__icon").addClass("toggle__icon--collapse").attr("src", "icon/collapse.png");
+    template.find(".toggle__icon").addClass("toggle__icon--collapse");
     template.find(".program__text").addClass("program__text--season");
   } else if (type == "Season") {
     template.attr("pid", pid);
@@ -45,7 +45,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     template.find(".table__td--title").text("").attr("stitle", processTitle(name)).addClass("table__td--stitle");
     template.find(".table__td--season").text(seasons);
     template.find(".table__td--episode").text(episodes.length);
-    template.find(".toggle__icon").addClass("toggle__icon--plus").attr("src", "icon/plus.png");
+    template.find(".toggle__icon").addClass("toggle__icon--plus");
     if (isLastS) {
       template.find(".table__td--first").addClass("table__line--season table__line--last-s");
     } else {
@@ -93,23 +93,23 @@ $(".table").on("click", ".table__tr", function() {
   var $icon = $(this).find(".toggle__icon");
   if ($icon.hasClass("toggle__icon--collapse")) {
     var id = $(this).find(".table__td--id").text();
-    $icon.addClass("toggle__icon--expand table__line--expand").removeClass("toggle__icon--collapse").attr("src", "icon/expand.png");
+    $icon.addClass("toggle__icon--expand table__line--expand").removeClass("toggle__icon--collapse");
     $("[pid='" + id + "']").show(500);
   } else if ($icon.hasClass("toggle__icon--expand")) {
     var id = $(this).find(".table__td--id").text();
-    $icon.addClass("toggle__icon--collapse").removeClass("toggle__icon--expand table__line--expand").attr("src", "icon/collapse.png");
+    $icon.addClass("toggle__icon--collapse").removeClass("toggle__icon--expand table__line--expand");
     $("[pid='" + id + "']").hide(500);
     $("[gid='" + id + "']").hide(500);
     setTimeout(function() {
-      $("[pid='" + id + "']").find(".toggle__icon").addClass("toggle__icon--plus").removeClass("toggle__icon--minus table__line--minus").attr("src", "icon/plus.png");
+      $("[pid='" + id + "']").find(".toggle__icon").addClass("toggle__icon--plus").removeClass("toggle__icon--minus table__line--minus");
     }, 500);
   } else if ($icon.hasClass("toggle__icon--plus")) {
     var sid = $(this).find(".table__td--sid").attr("sid");
-    $icon.addClass("toggle__icon--minus table__line--minus").removeClass("toggle__icon--plus").attr("src", "icon/minus.png");
+    $icon.addClass("toggle__icon--minus table__line--minus").removeClass("toggle__icon--plus");
     $("[pid='" + sid + "']").show(500);
   } else if ($icon.hasClass("toggle__icon--minus")) {
     var sid = $(this).find(".table__td--sid").attr("sid");
-    $icon.addClass("toggle__icon--plus").removeClass("toggle__icon--minus table__line--minus").attr("src", "icon/plus.png");
+    $icon.addClass("toggle__icon--plus").removeClass("toggle__icon--minus table__line--minus");
     $("[pid='" + sid + "']").hide(500);
   }
 });

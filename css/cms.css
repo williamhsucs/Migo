@@ -121,12 +121,17 @@ html {
 }
 .table__th--s {
   width: 5.5rem;
+  min-width: 3rem;
 }
 .table__th--m {
   width: 13rem;
+  min-width: 3rem;
 }
 .table__th--l {
   min-width: 5.5rem;
+}
+.table__th--xl {
+  min-width: 3rem;
 }
 .table__th--fixed {
   position: absolute;
@@ -183,16 +188,16 @@ html {
   content: " ";
   position: absolute;
   top: 0;
-  left: 1.6rem;
+  left: 1.3rem;
   height: 3.8rem;
 }
 .table__line--season:after {
   border: 1px solid #C3C3C2;
   content: " ";
   position: absolute;
-  width: 2.083rem;
+  width: 1.917rem;
   top: 1.8rem;
-  left: 1.6rem;
+  left: 1.3rem;
 }
 .table__line--last-s:before {
   border: 1px solid #C3C3C2;
@@ -200,7 +205,7 @@ html {
   height: 1.85rem;
   position: absolute;
   top: 0;
-  left: 1.6rem;
+  left: 1.3rem;
 }
 .table__line--ep2:before {
   border: 1px solid #C3C3C2;
@@ -214,7 +219,7 @@ html {
   border: 1px solid #C3C3C2;
   content: " ";
   position: absolute;
-  width: 2.083rem;
+  width: 1.917rem;
   top: 1.8rem;
   left: 4.6rem;
 }
@@ -223,7 +228,7 @@ html {
   content: " ";
   position: absolute;
   top: 0;
-  left: 1.6rem;
+  left: 1.3rem;
   height: 3.8rem;
 }
 .table__line--last-e:before {
@@ -240,39 +245,57 @@ html {
   position: absolute;
   height: 1rem;
   top: 2.8rem;
-  left: 1.6rem;
-}
-.table__line--minus:after {
-  border: 1px solid #C3C3C2;
-  content: " ";
-  position: absolute;
-  height: 1rem;
-  top: 2.8rem;
-  left: 4.6rem;
-}
-.toggle__icon:before {
-  position: absolute;
-  left: 0;
-  top: 0.2rem;
-  transform: scale(.4);
+  left: 1.3rem;
 }
 
 /**
  * Toggle Icon
  */
 .toggle__icon--collapse:before {
-  content: url("../icon/collapse.png");
+  content: "";
+  border-color: transparent transparent transparent #7C7C7B;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.25rem;
 }
 .toggle__icon--expand:before {
-  content: url("../icon/expand.png");
+  content: "";
+  border-color: #7C7C7B transparent transparent transparent;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  position: absolute;
+  top: 1.75rem;
+  left: 1rem;
 }
 .toggle__icon--plus:before {
-  content: url("../icon/plus.png");
-  left: 3rem;
+  background: linear-gradient(white 0 0), linear-gradient(white 0 0), #7C7C7B;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60% 0.1rem, 0.1rem 60%;
+  border: 1px solid #7C7C7B;
+  border-radius: 0.1667rem;
+  content: "";
+  width: 0.834rem;
+  height: 0.834rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 4.25rem;
 }
 .toggle__icon--minus:before {
-  content: url("../icon/minus.png");
-  left: 3rem;
+  background: linear-gradient(#7C7C7B 0 0), linear-gradient(#7C7C7B 0 0), white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% 0.1rem;
+  border: 1px solid #7C7C7B;
+  border-radius: 0.1667rem;
+  content: "";
+  width: 0.834rem;
+  height: 0.834rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 4.25rem;
 }
 .toggle__icon--img {
   width: 1.334rem;
