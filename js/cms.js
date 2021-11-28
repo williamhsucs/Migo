@@ -74,7 +74,11 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     }
   }
 }
-buildTable(titles);
+
+jQuery.expr[':'].contains = function(a, i, m) {
+  return jQuery(a).text().toUpperCase()
+      .indexOf(m[3].toUpperCase()) >= 0;
+};
 
 $(".table").on("click", ".table__tr", function() {
   var $icon = $(this).find(".toggle__icon");
@@ -97,3 +101,21 @@ $(".table").on("click", ".table__tr", function() {
     $("[pid='" + sid + "']").addClass("table__tr--hide");
   }
 });
+
+$(".search__input").on("input", function() {
+	var search = $(this).val();
+	if (search !== "") {
+		$("tbody>tr").addClass("table__tr--hide");
+		$("td:contains('" + search + "')").parent().removeClass("table__tr--hide");
+		$("td[sid*='" + search + "']").parent().removeClass("table__tr--hide");
+		$("td[stitle*='" + search + "']").parent().removeClass("table__tr--hide");
+		$("td[eid*='" + search + "']").parent().removeClass("table__tr--hide");
+		$("td[etitle*='" + search + "']").parent().removeClass("table__tr--hide");
+	} else {
+		$("tbody>tr").removeClass("table__tr--hide");
+		$("[pid]").addClass("table__tr--hide");
+		$("[gid]").addClass("table__tr--hide");
+	}
+});
+
+buildTable(titles);
