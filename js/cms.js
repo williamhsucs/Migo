@@ -18,10 +18,14 @@ function buildTable(data) {
   }
 }
 
+function processTitle(name) {
+  return name.length > 80 ? name.substring(0, 80) + "..." : name;
+}
+
 function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLastS, isLastEP) {
   var template = $(".table--template").clone();
   template.find(".table__td--id").text(id);
-  template.find(".table__td--title").text(name);
+  template.find(".table__td--title").text(processTitle(name));
   template.find(".table__td--type").text(type);
   if (type == "Movie") {
     template.removeClass("table__tr--hide");
@@ -38,7 +42,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
   } else if (type == "Season") {
     template.attr("pid", pid);
     template.find(".table__td--id").text("").attr("sid", id).addClass("table__td--sid");
-    template.find(".table__td--title").text("").attr("stitle", name).addClass("table__td--stitle");
+    template.find(".table__td--title").text("").attr("stitle", processTitle(name)).addClass("table__td--stitle");
     template.find(".table__td--season").text(seasons);
     template.find(".table__td--episode").text(episodes.length);
     template.find(".toggle__icon").addClass("toggle__icon--plus").attr("src", "icon/plus.png");
@@ -52,7 +56,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     template.attr("pid", pid);
     template.attr("gid", gid);
     template.find(".table__td--id").text("").attr("eid", id).addClass("table__td--eid");
-    template.find(".table__td--title").text("").attr("etitle", name).addClass("table__td--etitle");
+    template.find(".table__td--title").text("").attr("etitle", processTitle(name)).addClass("table__td--etitle");
     template.find(".table__td--season").text("--");
     template.find(".table__td--episode").text(episodes);
     if (!isLastS) {

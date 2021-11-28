@@ -125,6 +125,9 @@ html {
 .table__th--m {
   width: 12rem;
 }
+.table__th--l {
+  min-width: 5.5rem;
+}
 .table__th--fixed {
   position: absolute;
   top: 0;
@@ -145,7 +148,9 @@ html {
   display: none;
 }
 .table__td {
-  line-height: 4rem;
+  vertical-align: middle;
+  height: 4rem;
+  line-height: 1rem;
 }
 .table__td--first {
   text-align: center;
@@ -245,7 +250,7 @@ html {
 .toggle__icon:before {
   position: absolute;
   left: 0;
-  top: -3px;
+  top: 0.2rem;
   transform: scale(.4);
 }
 
