@@ -1,5 +1,11 @@
+/**
+ * Parse JSON data
+ */
 var titles = JSON.parse(titles);
 
+/**
+ * Time Converter
+ */
 function timeConverter(timestamp){
   var date = new Date(timestamp);
   var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -7,6 +13,8 @@ function timeConverter(timestamp){
 }
 
 /**
+ * Build Table
+ * 
  * Time Complexity: O(n)
  *   - Traverse all nodes.
  * Space Complexity: O(h)
@@ -18,10 +26,16 @@ function buildTable(data) {
   }
 }
 
+/**
+ * Process Title Length Overflow
+ */
 function processTitle(name) {
   return name.length > 80 ? name.substring(0, 80) + "..." : name;
 }
 
+/**
+ * Build Row
+ */
 function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLastS, isLastEP) {
   var template = $(".table--template").clone();
   template.find(".table__td--id").text(id);
@@ -32,6 +46,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     template.find(".table__td--season").text("--");
     template.find(".table__td--episode").text("--");
     template.find(".program__text").addClass("program__text--movie");
+
   } else if (type == "Series") {
     template.removeClass("table__tr--hide");
     template.find(".table__td--season").text(seasons.length);
@@ -39,6 +54,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
     template.find(".table__td--id").attr("rid", id);
     template.find(".toggle__icon").addClass("toggle__icon--collapse");
     template.find(".program__text").addClass("program__text--season");
+
   } else if (type == "Season") {
     template.attr("pid", pid);
     template.find(".table__td--id").text("").attr("sid", id).addClass("table__td--sid");
@@ -52,6 +68,7 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
       template.find(".table__td--first").addClass("table__line--season");
     }
     template.find(".program__text").addClass("program__text--eps");
+
   } else if (type == "Episode") {
     template.attr("pid", pid);
     template.attr("gid", gid);
@@ -68,7 +85,9 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
       template.find(".table__td--first").addClass("table__line--ep2");
     }
     template.find(".program__text").addClass("program__text--ep");
+
   }
+
   template.find(".table__td--published").text(timeConverter(published));
   template.removeClass("table--template");
   template.appendTo(".table__tbody");
@@ -84,17 +103,16 @@ function buildRow(id, pid, gid, name, type, seasons, episodes, published, isLast
   }
 }
 
-jQuery.expr[':'].contains = function(a, i, m) {
-  return jQuery(a).text().toUpperCase()
-      .indexOf(m[3].toUpperCase()) >= 0;
-};
-
+/**
+ * Table Row Listener
+ */
 $(".table").on("click", ".table__tr", function() {
   var $icon = $(this).find(".toggle__icon");
   if ($icon.hasClass("toggle__icon--collapse")) {
     var id = $(this).find(".table__td--id").text();
     $icon.addClass("toggle__icon--expand table__line--expand").removeClass("toggle__icon--collapse");
     $("[pid='" + id + "']").show(500);
+
   } else if ($icon.hasClass("toggle__icon--expand")) {
     var id = $(this).find(".table__td--id").text();
     $icon.addClass("toggle__icon--collapse").removeClass("toggle__icon--expand table__line--expand");
@@ -103,18 +121,23 @@ $(".table").on("click", ".table__tr", function() {
     setTimeout(function() {
       $("[pid='" + id + "']").find(".toggle__icon").addClass("toggle__icon--plus").removeClass("toggle__icon--minus table__line--minus");
     }, 500);
+
   } else if ($icon.hasClass("toggle__icon--plus")) {
     var sid = $(this).find(".table__td--sid").attr("sid");
     $icon.addClass("toggle__icon--minus table__line--minus").removeClass("toggle__icon--plus");
     $("[pid='" + sid + "']").show(500);
+
   } else if ($icon.hasClass("toggle__icon--minus")) {
     var sid = $(this).find(".table__td--sid").attr("sid");
     $icon.addClass("toggle__icon--plus").removeClass("toggle__icon--minus table__line--minus");
     $("[pid='" + sid + "']").hide(500);
+
   }
 });
 
-
+/**
+ * Programmable Toggle Listener
+ */
 $(".table").on("click", ".program__icon", function(e) {
   e.stopPropagation();
   var $icon = $(this);
@@ -170,11 +193,21 @@ $(".table").on("click", ".program__icon", function(e) {
   }
 });
 
+/**
+ * Compare Ignore Letter Case.
+ */
+jQuery.expr[':'].contains = function(a, i, m) {
+  return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+};
+
+/**
+ * Search Bar
+ */
 $(".search__input").on("input", function() {
 	var search = $(this).val();
 	if (search !== "") {
 		$("tbody>tr").hide();
-		$("td:contains('" + search + "')").show();
+		$("td:contains('" + search + "')").parent().show();
 		$("td[sid*='" + search + "']").parent().show();
 		$("td[stitle*='" + search + "']").parent().show();
 		$("td[eid*='" + search + "']").parent().show();

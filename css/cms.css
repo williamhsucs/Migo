@@ -14,7 +14,7 @@ html {
 }
 .header--basic {
   background-color: #E31E30;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.167rem 0.167rem rgba(0, 0, 0, 0.15);
   position: fixed;
   top: 0;
   right: auto;
@@ -34,9 +34,9 @@ html {
  * Brand
  */
 .brand__outer {
-  background: black;
-  font-weight: 900;
+  background-color: black;
   color: white;
+  font-weight: 900;
   text-align: center;
   width: 15.833rem;
   height: 5.333rem;
@@ -50,8 +50,8 @@ html {
   width: 2.3rem;
 }
 .brand__title {
-  margin: auto 0.75rem;
   text-align: left;
+  margin: auto 0.75rem;
 }
 .brand__title--1 {
   letter-spacing: 0.42rem;
@@ -74,13 +74,13 @@ html {
   display: inline-flex;
 }
 .item__title {
-  margin: auto 0.75rem;
   text-align: left;
+  margin: auto 0.75rem;
 }
 .item__title--text {
   font-size: 1.333rem;
   font-weight: 700;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.021rem;
 }
 
 /**
@@ -95,8 +95,8 @@ html {
   color: rgba(0, 0, 0, 0.87);
   font-size: 1.334rem;
   font-weight: 500;
-  line-height: 3.334rem;
   letter-spacing: 0.0125rem;
+  line-height: 3.334rem;
 }
 
 /**
@@ -110,7 +110,7 @@ html {
 .search__input {
   background: rgba(32, 32, 32, 0.05);
   border: 1px solid #B2B2B2;
-  border-radius: 4px;
+  border-radius: 0.333rem;
   box-sizing: border-box;
   font-size: 1.167rem;
   padding-left: 4.667rem;
@@ -118,9 +118,9 @@ html {
   line-height: 3.334rem;
 }
 .search__icon {
+  line-height: 3.6rem;
   position: absolute;
   left: 1.667rem;
-  line-height: 3.6rem;
 }
 .search__icon--img {
   width: 1.459rem;
@@ -139,7 +139,7 @@ html {
 }
 .table__outer--basic {
   border: 1px solid #C3C3C2;
-  border-radius: 4px;
+  border-radius: 0.333rem;
 }
 .table__inner {
   box-sizing: border-box;
@@ -156,8 +156,8 @@ html {
 }
 .table__th--bg {
   background-color: #E8E8E7;
-  border-radius: 4px 4px 0px 0px;
-  box-shadow: inset 0px -1px 0px rgba(161, 106, 106, 0.2);
+  border-radius: 0.333rem 0.333rem 0 0;
+  box-shadow: inset 0 -0.083rem 0 rgba(161, 106, 106, 0.2);
   width: 100%;
   position: absolute;
   top: 0;
@@ -194,7 +194,7 @@ html {
   left: auto;
 }
 .table__tr {
-  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -0.083rem 0 rgba(0, 0, 0, 0.15);
   cursor: pointer;
   height: 4rem;
   position: relative;
@@ -239,16 +239,16 @@ html {
 .table__line--season:before {
   border: 1px solid #C3C3C2;
   content: " ";
+  height: 3.8rem;
   position: absolute;
   top: 0;
   left: 1.3rem;
-  height: 3.8rem;
 }
 .table__line--season:after {
   border: 1px solid #C3C3C2;
   content: " ";
-  position: absolute;
   width: 1.917rem;
+  position: absolute;
   top: 1.8rem;
   left: 1.3rem;
 }
@@ -263,26 +263,26 @@ html {
 .table__line--ep2:before {
   border: 1px solid #C3C3C2;
   content: " ";
+  height: 3.8rem;
   position: absolute;
   top: 0;
   left: 4.6rem;
-  height: 3.8rem;
 }
 .table__line--ep2:after {
   border: 1px solid #C3C3C2;
   content: " ";
-  position: absolute;
   width: 1.917rem;
+  position: absolute;
   top: 1.8rem;
   left: 4.6rem;
 }
 .table__line--ep1:after {
   border: 1px solid #C3C3C2;
   content: " ";
+  height: 3.8rem;
   position: absolute;
   top: 0;
   left: 1.3rem;
-  height: 3.8rem;
 }
 .table__line--last-e:before {
   border: 1px solid #C3C3C2;
@@ -295,8 +295,8 @@ html {
 .table__line--expand:after {
   border: 1px solid #C3C3C2;
   content: " ";
-  position: absolute;
   height: 1rem;
+  position: absolute;
   top: 2.8rem;
   left: 1.3rem;
 }
@@ -308,7 +308,7 @@ html {
   content: "";
   border-color: transparent transparent transparent #7C7C7B;
   border-style: solid;
-  border-width: 5px 0 5px 8px;
+  border-width: 0.417rem 0 0.417rem 0.667rem;
   position: absolute;
   top: 1.5rem;
   left: 1.25rem;
@@ -317,7 +317,7 @@ html {
   content: "";
   border-color: #7C7C7B transparent transparent transparent;
   border-style: solid;
-  border-width: 8px 5px 0 5px;
+  border-width: 0.667rem 0.417rem 0 0.417rem;
   position: absolute;
   top: 1.75rem;
   left: 1rem;
@@ -350,15 +350,10 @@ html {
   top: 1.5rem;
   left: 4.25rem;
 }
-.toggle__icon--img {
-  width: 1.334rem;
-}
 
 /**
  * Programmable Icon
  */
- /*
-*/
 .program__icon {
   border-radius: 2rem;
   display: inline-block;
@@ -366,7 +361,7 @@ html {
   width: 3.916rem;
   height: 1.75rem;
   position: relative;
-  transition: background-color 500ms ease;
+  transition: background-color 0.5s ease;
 }
 .program__icon:after {
   background-color: white;
@@ -383,7 +378,7 @@ html {
   position: absolute;
 }
 .program__icon--on {
-  background: #08aa5e;
+  background: #08AA5E;
 }
 .program__icon--on:after {
   right: 0.3rem;
