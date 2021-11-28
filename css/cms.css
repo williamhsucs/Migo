@@ -284,8 +284,9 @@ html {
  /*
 */
 .program__icon {
-  border-radius: 22px;
+  border-radius: 2rem;
   display: inline-block;
+  vertical-align: middle;
   width: 3.916rem;
   height: 1.75rem;
   position: relative;
@@ -309,7 +310,7 @@ html {
   background: #08aa5e;
 }
 .program__icon--on:after {
-  right: 0.25rem;
+  right: 0.3rem;
 }
 .program__icon--off {
   background: #B2B2B2;
@@ -320,7 +321,7 @@ html {
 .program__text {
   letter-spacing: 0.0125rem;
   padding-left: 0.75rem;
-  line-height: 1.167rem;
+  line-height: 1rem;
 }
 .program__text--movie:before {
   content: "Single Movie";
